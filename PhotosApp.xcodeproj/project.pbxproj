@@ -14,6 +14,7 @@
 		B636B6E71CD69ADE00E7441B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B636B6E51CD69ADE00E7441B /* LaunchScreen.storyboard */; };
 		B636B6F21CD69ADE00E7441B /* PhotosAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636B6F11CD69ADE00E7441B /* PhotosAppTests.swift */; };
 		B636B6FD1CD69ADE00E7441B /* PhotosAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636B6FC1CD69ADE00E7441B /* PhotosAppUITests.swift */; };
+		B636B70F1CD6A11900E7441B /* JSONPlaceholderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636B70E1CD6A11900E7441B /* JSONPlaceholderAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		B636B6F81CD69ADE00E7441B /* PhotosAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotosAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B636B6FC1CD69ADE00E7441B /* PhotosAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAppUITests.swift; sourceTree = "<group>"; };
 		B636B6FE1CD69ADE00E7441B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B636B70E1CD6A11900E7441B /* JSONPlaceholderAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONPlaceholderAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		B636B6DB1CD69ADE00E7441B /* PhotosApp */ = {
 			isa = PBXGroup;
 			children = (
+				B636B70D1CD6A0FB00E7441B /* JSONPlaceholderAPI */,
 				B636B6DC1CD69ADE00E7441B /* AppDelegate.swift */,
 				B636B6DE1CD69ADE00E7441B /* ViewController.swift */,
 				B636B6E01CD69ADE00E7441B /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				B636B6FE1CD69ADE00E7441B /* Info.plist */,
 			);
 			path = PhotosAppUITests;
+			sourceTree = "<group>";
+		};
+		B636B70D1CD6A0FB00E7441B /* JSONPlaceholderAPI */ = {
+			isa = PBXGroup;
+			children = (
+				B636B70E1CD6A11900E7441B /* JSONPlaceholderAPI.swift */,
+			);
+			name = JSONPlaceholderAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B636B70F1CD6A11900E7441B /* JSONPlaceholderAPI.swift in Sources */,
 				B636B6DF1CD69ADE00E7441B /* ViewController.swift in Sources */,
 				B636B6DD1CD69ADE00E7441B /* AppDelegate.swift in Sources */,
 			);
