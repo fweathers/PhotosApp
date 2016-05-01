@@ -10,4 +10,24 @@ import Foundation
 
 class JSONPlaceholderAPI {
     // This class will contain logic to fetch placeholder photos
+    
+    func loadPhotos(completion: ((AnyObject) -> Void)!) {
+        
+        var urlString = "http://jsonplaceholder.typicode.com/photos?albumId=1"
+        
+        let session = NSURLSession.sharedSession()
+        let photosUrl = NSURL(string: urlString)
+        
+        var task = session.dataTaskWithURL(photosUrl!) {
+            (data, response, error) -> Void in
+            
+            if error != nil {
+                print(error?.localizedDescription)
+            } else {
+                
+            }
+        }
+        
+        task.resume()
+    }
 }
