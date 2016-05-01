@@ -21,10 +21,24 @@ class JSONPlaceholderAPI {
         var task = session.dataTaskWithURL(photosUrl!) {
             (data, response, error) -> Void in
             
-            if error != nil {
-                print(error?.localizedDescription)
-            } else {
+            do {
+                let photosData = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSArray
                 
+                var photos = [Photo]()
+                
+                for photo in photosData {
+                    let photo = Photo(data: photo as! NSDictionary)
+                    photos.append(photo)
+                }
+                
+                let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+                dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        completion(photos)
+                    }
+                }
+            } catch let error {
+                print("JSON Serialization failed. Error: \(error)")
             }
         }
         
