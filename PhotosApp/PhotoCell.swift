@@ -17,7 +17,7 @@ class PhotoCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.textColor = UIColor.blackColor()
         titleLabel.font = UIFont(name: "Avenir", size: 11)
         
         placeholderImageView.layer.borderColor = UIColor(white: 0.2, alpha: 1.0).CGColor

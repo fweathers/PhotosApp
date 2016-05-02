@@ -15,7 +15,7 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet var layout : UICollectionViewFlowLayout!
     
     var photos : [Photo]!
-    var cellHeight : CGFloat = 240
+    var cellHeight : CGFloat = 200
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
         title = "Photos"
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor.clearColor()
+        collectionView.backgroundColor = UIColor.whiteColor()
         
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0

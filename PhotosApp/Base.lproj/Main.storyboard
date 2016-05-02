@@ -17,27 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bJ7-FW-UhO">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bJ7-FW-UhO">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cXV-EW-Caa">
-                                    <size key="itemSize" width="246" height="248"/>
+                                    <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="RdD-zR-nCm" customClass="PhotoCell" customModule="PhotosApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="246" height="248"/>
+                                        <rect key="frame" x="0.0" y="64" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="246" height="248"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Fs-fa-Bh6">
-                                                    <rect key="frame" x="13" y="13" width="220" height="194"/>
+                                                    <rect key="frame" x="13" y="13" width="150" height="150"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdy-EA-Yd0">
-                                                    <rect key="frame" x="14" y="213" width="42" height="21"/>
+                                                    <rect key="frame" x="15" y="175" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -45,6 +45,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <size key="customSize" width="200" height="200"/>
                                         <connections>
                                             <outlet property="placeholderImageView" destination="2Fs-fa-Bh6" id="8Vn-wY-WZX"/>
                                             <outlet property="titleLabel" destination="tdy-EA-Yd0" id="gcY-E6-JXp"/>
@@ -53,6 +54,12 @@
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="BwF-bg-vdr" firstAttribute="top" secondItem="bJ7-FW-UhO" secondAttribute="bottom" id="UFW-Df-d98"/>
+                            <constraint firstItem="bJ7-FW-UhO" firstAttribute="leading" secondItem="HB6-73-rBJ" secondAttribute="leading" id="Zpg-4F-kQO"/>
+                            <constraint firstItem="bJ7-FW-UhO" firstAttribute="top" secondItem="HB6-73-rBJ" secondAttribute="top" id="nir-pg-rGs"/>
+                            <constraint firstAttribute="trailing" secondItem="bJ7-FW-UhO" secondAttribute="trailing" id="pIb-Cc-1Xf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dSS-ne-p5x"/>
                     <connections>
