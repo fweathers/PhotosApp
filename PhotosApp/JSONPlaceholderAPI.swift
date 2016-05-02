@@ -11,7 +11,7 @@ import Foundation
 class JSONPlaceholderAPI {
     // This class will contain logic to fetch placeholder photos
     
-    func loadPhotos(completion: ((AnyObject) -> Void)!) {
+    func loadPhotos(completion: (([Photo]) -> Void)!) {
         
         let urlString = "http://jsonplaceholder.typicode.com/photos?albumId=1"
         

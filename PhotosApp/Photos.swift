@@ -14,6 +14,8 @@ class Photo {
     var url : String!
     var thumbnailUrl : String!
     
+    var imageData : NSData?
+    
     init(data: NSDictionary) {
         
         self.id = data["id"] as! Int
