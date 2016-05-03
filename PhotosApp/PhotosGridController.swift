@@ -15,7 +15,7 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet var layout : UICollectionViewFlowLayout!
     
     var photos : [Photo]!
-    var cellHeight : CGFloat = 200
+    var cellHeight : CGFloat = 75
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         
-        let cellWidth = self.view.frame.width/2
+        let cellWidth = self.view.frame.width/4
         layout.itemSize = CGSizeMake(cellWidth, cellHeight)
         
         photos = [Photo]()
@@ -63,7 +63,7 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
         let downloadQueue = dispatch_queue_create("com.PhotosApp.processdownload", nil)
         
         dispatch_async(downloadQueue) {
-            var data = NSData(contentsOfURL: NSURL(string: photo.thumbnailUrl)!)
+            let data = NSData(contentsOfURL: NSURL(string: photo.thumbnailUrl)!)
             
             var image : UIImage?
             if data != nil {
