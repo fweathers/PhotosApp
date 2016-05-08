@@ -17,6 +17,11 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
     var photos : [Photo]!
     var cellHeight : CGFloat = 75
     
+    var selectedPhotoName = String()
+    
+    var selectedRow = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +47,20 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "photosDetail" {
+//            // Put the destination view controller in a variable
+//            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! PhotosDetailController
+//            
+//            // Pass the selectedPhoto to the destination view controller
+//            controller.selectedPhotoName = selectedPhotoName
+//        }
+//    }
+
+    
+    
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoCell
@@ -58,6 +77,27 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
         return photos.count
     }
     
+   //JUST ADDED THIS
+    
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        selectedRow = indexPath.row
+        
+        self.performSegueWithIdentifier("photosDetail", sender: self);
+        print("Item \(indexPath.row) in section \(indexPath.section)")
+    }
+    
+
+//    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if (segue.identifier == "photosDetail") {
+//            
+//            let nextVC = segue.destinationViewController as! PhotosDetailController;
+//            nextVC.photoView = photos[selectedRow]
+//        }
+//    }
+    
+       
     func asyncLoadPhotoImage(photo: Photo, imageView: UIImageView) {
         
         let downloadQueue = dispatch_queue_create("com.PhotosApp.processdownload", nil)

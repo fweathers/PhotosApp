@@ -39,7 +39,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdy-EA-Yd0">
                                                     <rect key="frame" x="15" y="175" width="148" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -65,11 +65,44 @@
                     <connections>
                         <outlet property="collectionView" destination="bJ7-FW-UhO" id="q3A-Lt-oFP"/>
                         <outlet property="layout" destination="cXV-EW-Caa" id="sVn-7h-C53"/>
+                        <segue destination="siW-05-F6N" kind="show" identifier="photosDetail" id="bXM-zo-Zgj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jg-pm-EJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="555" y="49"/>
+        </scene>
+        <!--Photos Detail Controller-->
+        <scene sceneID="7mp-Y0-lAg">
+            <objects>
+                <viewController id="siW-05-F6N" customClass="PhotosDetailController" customModule="PhotosApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5dL-RE-Cau"/>
+                        <viewControllerLayoutGuide type="bottom" id="kFT-jl-jLb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NEQ-rz-eCZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gN9-2p-9uq">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gN9-2p-9uq" secondAttribute="trailing" id="6kN-oL-0la"/>
+                            <constraint firstItem="gN9-2p-9uq" firstAttribute="leading" secondItem="NEQ-rz-eCZ" secondAttribute="leading" id="DRl-Bq-7Jx"/>
+                            <constraint firstItem="kFT-jl-jLb" firstAttribute="top" secondItem="gN9-2p-9uq" secondAttribute="bottom" id="Gv7-10-BLL"/>
+                            <constraint firstItem="gN9-2p-9uq" firstAttribute="top" secondItem="5dL-RE-Cau" secondAttribute="bottom" id="dS0-2v-o09"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoView" destination="gN9-2p-9uq" id="Oba-ss-5gH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eqa-xB-dey" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1344" y="49"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZEt-8Y-8Pg">

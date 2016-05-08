@@ -18,6 +18,7 @@
 		B636B7111CD6A6E700E7441B /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636B7101CD6A6E700E7441B /* Photos.swift */; };
 		B636B7141CD6BC9A00E7441B /* PhotosGridController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636B7131CD6BC9A00E7441B /* PhotosGridController.swift */; };
 		B636B7171CD6C0C100E7441B /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636B7161CD6C0C100E7441B /* PhotoCell.swift */; };
+		B67C07441CD90867002F4DBE /* PhotosDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67C07431CD90867002F4DBE /* PhotosDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		B636B7101CD6A6E700E7441B /* Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		B636B7131CD6BC9A00E7441B /* PhotosGridController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosGridController.swift; sourceTree = "<group>"; };
 		B636B7161CD6C0C100E7441B /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		B67C07431CD90867002F4DBE /* PhotosDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				B636B7131CD6BC9A00E7441B /* PhotosGridController.swift */,
+				B67C07431CD90867002F4DBE /* PhotosDetailController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			files = (
 				B636B7111CD6A6E700E7441B /* Photos.swift in Sources */,
 				B636B70F1CD6A11900E7441B /* JSONPlaceholderAPI.swift in Sources */,
+				B67C07441CD90867002F4DBE /* PhotosDetailController.swift in Sources */,
 				B636B6DF1CD69ADE00E7441B /* ViewController.swift in Sources */,
 				B636B7141CD6BC9A00E7441B /* PhotosGridController.swift in Sources */,
 				B636B7171CD6C0C100E7441B /* PhotoCell.swift in Sources */,
