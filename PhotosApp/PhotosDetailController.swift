@@ -15,13 +15,15 @@ class PhotosDetailController: UIViewController {
     
     var photo : Photo?
     
+    
     var selectedPhotoName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        let image = UIImage(data: (photo?.imageData)!)
+        
+        self.photoView.image = image
+        self.title = photo?.title
     }
-    
-    
 }

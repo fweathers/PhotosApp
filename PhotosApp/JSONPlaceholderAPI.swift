@@ -19,10 +19,6 @@ class JSONPlaceholderAPI {
         let session = NSURLSession.sharedSession()
         let photosUrl = NSURL(string: urlString)
         
-//        if let data = NSData(contentsOfURL: photosUrl!) {
-//            imageUrl.image = UIImage(data: data)
-//        }
-        
         let task = session.dataTaskWithURL(photosUrl!) {
             (data, response, error) -> Void in
             
