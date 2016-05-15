@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Photo {
     var id : Int!
@@ -15,6 +16,7 @@ class Photo {
     var thumbnailUrl : String!
     
     var imageData : NSData?
+    
     
     init(data: NSDictionary) {
         
