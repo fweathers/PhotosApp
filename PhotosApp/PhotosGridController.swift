@@ -20,7 +20,7 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
     var selectedPhotoName = String()
     
     var selectedRow = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,6 +58,7 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("Total photos \(photos.count)")
         return photos.count
     }
     
@@ -67,6 +68,13 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
         self.performSegueWithIdentifier("photosDetail", sender: self);
         print("Item \(indexPath.row) in section \(indexPath.section)")
         
+        // Need to print this as title for PhotosDetailController
+        print("The print: \(indexPath.row) / \(photos.count)")
+        
+        let counter = String("\(indexPath.row) / \(photos.count)")
+        
+        print("Counter: \(counter)")
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -75,6 +83,7 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
                 let nextVC = segue.destinationViewController as! PhotosDetailController;
                 nextVC.photo = photos[selectedRow]
             
+                nextVC.title = String("\(selectedRow) / \(photos.count)")
         }
     }
        

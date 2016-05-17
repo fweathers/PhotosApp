@@ -12,10 +12,10 @@ import UIKit
 class PhotosDetailController: UIViewController {
     
     @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var deleteButton: UIBarButtonItem!
     
     var photo : Photo?
-    
-    
+        
     var selectedPhotoName: String = ""
     
     override func viewDidLoad() {
@@ -24,6 +24,31 @@ class PhotosDetailController: UIViewController {
         let image = UIImage(data: (photo?.imageData)!)
         
         self.photoView.image = image
-        self.title = photo?.title
+//        self.title = String(photo!.title)
+        
+        }
+    
+    @IBAction func deleteButton(sender: UIBarButtonItem) {
+        
+        print("trash")
+        
+        let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this photo?", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: {(alertAction)in
+//            PhotosGridController.collectionView
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {(alertAction)in
+            alert.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
+    
+//    func numberOfPhotos (_: Int) -> NSInteger {
+//        return photo.count
+//    }
+    
+    //    override func viewWillAppear(animated: Bool) {
+    //        [self.view layoutIfNeeded];
+    //        [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+    
+    //    }
 }

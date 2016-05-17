@@ -17,7 +17,6 @@ class Photo {
     
     var imageData : NSData?
     
-    
     init(data: NSDictionary) {
         
         self.id = data["id"] as! Int
