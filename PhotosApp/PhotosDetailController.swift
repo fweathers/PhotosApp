@@ -24,7 +24,6 @@ class PhotosDetailController: UIViewController {
         let image = UIImage(data: (photo?.imageData)!)
         
         self.photoView.image = image
-//        self.title = String(photo!.title)
         
         }
     
@@ -41,10 +40,6 @@ class PhotosDetailController: UIViewController {
         }))
         self.presentViewController(alert, animated: true, completion: nil)
     }
-    
-//    func numberOfPhotos (_: Int) -> NSInteger {
-//        return photo.count
-//    }
     
     //    override func viewWillAppear(animated: Bool) {
     //        [self.view layoutIfNeeded];
