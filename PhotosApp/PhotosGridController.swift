@@ -83,7 +83,7 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
                 let nextVC = segue.destinationViewController as! PhotosDetailController;
                 nextVC.photo = photos[selectedRow]
             
-                nextVC.title = String("\(selectedRow) / \(photos.count)")
+                nextVC.title = String("\(selectedRow + 1) / \(photos.count)")
         }
     }
        

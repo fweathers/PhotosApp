@@ -33,7 +33,7 @@ class PhotosDetailController: UIViewController {
         
         let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this photo?", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: {(alertAction)in
-//            PhotosGridController.collectionView
+        print("Confirmed deletion")
         }))
         alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {(alertAction)in
             alert.dismissViewControllerAnimated(true, completion: nil)
