@@ -69,9 +69,9 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
         print("Item \(indexPath.row) in section \(indexPath.section)")
         
         // Need to print this as title for PhotosDetailController
-        print("The print: \(indexPath.row) / \(photos.count)")
+//        print("The print: \(indexPath.row + 1) / \(photos.count)")
         
-        let counter = String("\(indexPath.row) / \(photos.count)")
+        let counter = String("\(indexPath.row + 1) / \(photos.count)")
         
         print("Counter: \(counter)")
         
@@ -83,7 +83,10 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
                 let nextVC = segue.destinationViewController as! PhotosDetailController;
                 nextVC.photo = photos[selectedRow]
             
+                nextVC.photos = photos
+            
                 nextVC.title = String("\(selectedRow + 1) / \(photos.count)")
+            
         }
     }
        

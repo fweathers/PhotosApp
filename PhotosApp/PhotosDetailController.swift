@@ -15,17 +15,48 @@ class PhotosDetailController: UIViewController {
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     
     var photo : Photo?
-        
+    var photos : [Photo]!
     var selectedPhotoName: String = ""
+    var timer = NSTimer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let image = UIImage(data: (photo?.imageData)!)
+        transitionToNextImage()
+    }
+    
+    func transitionToNextImage() {
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.2, target:self, selector: #selector(PhotosDetailController.transitionImage), userInfo: nil, repeats: true)
         
-        self.photoView.image = image
+    }
+    
+    func transitionImage() {
         
+        let numImages = photos.count
+        print("Number of Images: \(numImages)")
+        let imagesIndex = Int(numImages - 1)
+        var nextImage: UIImage
+        
+        if self.photoView.image == photos.last!.imageData {
+            let firstImage = photos.first
+            nextImage = UIImage(data: (firstImage?.imageData)!)!
+        } else {
+            let x  = photos[imagesIndex - 1]
+            nextImage = UIImage(data: (x.imageData)!)!
         }
+        //        if self.photoView.image == numImages {
+        //            nextImage = photos[0]
+        //            self.currentCell = 0
+        //        } else {
+        //            let x = currentCell + 1
+        //            nextImage = photos[x]
+        //            self.currentCell = x
+        //        }
+        
+        let image = UIImage(data: (photo?.imageData)!)
+        self.photoView.image = image
+    }
+    
     
     @IBAction func deleteButton(sender: UIBarButtonItem) {
         
@@ -33,17 +64,11 @@ class PhotosDetailController: UIViewController {
         
         let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this photo?", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: {(alertAction)in
-        print("Confirmed deletion")
+            print("Confirmed deletion")
         }))
         alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {(alertAction)in
             alert.dismissViewControllerAnimated(true, completion: nil)
         }))
         self.presentViewController(alert, animated: true, completion: nil)
     }
-    
-    //    override func viewWillAppear(animated: Bool) {
-    //        [self.view layoutIfNeeded];
-    //        [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
-    
-    //    }
 }
