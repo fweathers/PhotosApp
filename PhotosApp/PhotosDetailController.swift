@@ -37,15 +37,18 @@ class PhotosDetailController: UIViewController {
     }
     
     @IBAction func deleteButton(sender: UIBarButtonItem) {
+        timer.invalidate()
         
         print("trash")
         
         let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this photo?", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: {(alertAction)in
             print("Confirmed deletion")
+            self.transitionToNextImage()
         }))
         alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {(alertAction)in
             alert.dismissViewControllerAnimated(true, completion: nil)
+            self.transitionToNextImage()
         }))
         self.presentViewController(alert, animated: true, completion: nil)
     }
