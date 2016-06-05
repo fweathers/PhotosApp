@@ -21,17 +21,19 @@ class PhotosDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        index = photos.indexOf{$0 === photo}!
         transitionToNextImage()
     }
     
     func transitionToNextImage() {
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(2, target:self, selector: #selector(PhotosDetailController.transitionImage), userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target:self, selector: #selector(PhotosDetailController.transitionImage), userInfo: nil, repeats: true)
     }
     
     func transitionImage() {
         self.photoView.image = UIImage(data: (photos[index].imageData)!)
-        
         index = index + 1
+        self.title = String("\(index)/\(photos.count)")
     }
     
     @IBAction func deleteButton(sender: UIBarButtonItem) {
