@@ -16,47 +16,23 @@ class PhotosDetailController: UIViewController {
     
     var photo : Photo?
     var photos : [Photo]!
-    var selectedPhotoName: String = ""
     var timer = NSTimer()
+    var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         transitionToNextImage()
     }
     
     func transitionToNextImage() {
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.2, target:self, selector: #selector(PhotosDetailController.transitionImage), userInfo: nil, repeats: true)
-        
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(2, target:self, selector: #selector(PhotosDetailController.transitionImage), userInfo: nil, repeats: true)
     }
     
     func transitionImage() {
+        self.photoView.image = UIImage(data: (photos[index].imageData)!)
         
-        let numImages = photos.count
-        print("Number of Images: \(numImages)")
-        let imagesIndex = Int(numImages - 1)
-        var nextImage: UIImage
-        
-        if self.photoView.image == photos.last!.imageData {
-            let firstImage = photos.first
-            nextImage = UIImage(data: (firstImage?.imageData)!)!
-        } else {
-            let x  = photos[imagesIndex - 1]
-            nextImage = UIImage(data: (x.imageData)!)!
-        }
-        //        if self.photoView.image == numImages {
-        //            nextImage = photos[0]
-        //            self.currentCell = 0
-        //        } else {
-        //            let x = currentCell + 1
-        //            nextImage = photos[x]
-        //            self.currentCell = x
-        //        }
-        
-        let image = UIImage(data: (photo?.imageData)!)
-        self.photoView.image = image
+        index = index + 1
     }
-    
     
     @IBAction func deleteButton(sender: UIBarButtonItem) {
         
