@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DataDeletionSavedDelegate {
     
     @IBOutlet var collectionView : UICollectionView!
     @IBOutlet var layout : UICollectionViewFlowLayout!
     
     var photos : [Photo]!
+    var photo : Photo?
     var cellHeight : CGFloat = 75
-    
-    var selectedPhotoName = String()
+    var index = 0
     
     var selectedRow = 0
     
@@ -40,8 +40,17 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
         api.loadPhotos(didLoadPhotos)
     }
     
+    // delegate
+    func userConfirmedDeletion(saveNewArray: NSData) {
+        index = photos.indexOf{$0 === photo}!
+
+        self.photos.removeAtIndex(self.index)
+    }
+    
     func didLoadPhotos(photos: [Photo]) {
         self.photos = photos
+        self.photos.removeAtIndex(self.index)
+
         collectionView.reloadData()
     }
     
@@ -68,9 +77,6 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
         self.performSegueWithIdentifier("photosDetail", sender: self);
         print("Item \(indexPath.row) in section \(indexPath.section)")
         
-        // Need to print this as title for PhotosDetailController
-//        print("The print: \(indexPath.row + 1) / \(photos.count)")
-        
         let counter = String("\(indexPath.row + 1) / \(photos.count)")
         
         print("Counter: \(counter)")
@@ -85,8 +91,10 @@ class PhotosGridController: UIViewController, UICollectionViewDelegate, UICollec
             
                 nextVC.photos = photos
             
-                nextVC.title = String("\(selectedRow + 1)/\(photos.count)")
+                nextVC.title = "\(selectedRow + 1)/\(photos.count)" 
             
+            //delegate
+                nextVC.delegate = self
         }
     }
        

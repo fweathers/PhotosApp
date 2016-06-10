@@ -9,10 +9,21 @@
 import Foundation
 import UIKit
 
+// Delegate
+protocol DataDeletionSavedDelegate {
+    func userConfirmedDeletion(saveNewArray: NSData)
+}
+//
+
 class PhotosDetailController: UIViewController {
+
     
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var deleteButton: UIBarButtonItem!
+    
+    //delegate
+    var delegate:DataDeletionSavedDelegate? = nil
+    //
     
     var photo : Photo?
     var photos : [Photo]!
@@ -24,6 +35,7 @@ class PhotosDetailController: UIViewController {
         
         index = photos.indexOf{$0 === photo}!
         transitionToNextImage()
+
     }
     
     func transitionToNextImage() {
@@ -33,16 +45,25 @@ class PhotosDetailController: UIViewController {
     func transitionImage() {
         self.photoView.image = UIImage(data: (photos[index].imageData)!)
         index = index + 1
-        self.title = String("\(index)/\(photos.count)")
+        self.title = "\(index)/\(photos.count)"
     }
     
     @IBAction func deleteButton(sender: UIBarButtonItem) {
         timer.invalidate()
         
-        print("trash")
+        print("delete button tapped")
         
         let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this photo?", preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: {(alertAction)in
+        alert.addAction(UIAlertAction(title: "Yes", style: .Destructive, handler: {(alertAction)in
+           
+            //Delegate
+            if (self.delegate != nil){
+                let information:NSData = self.photos.removeAtIndex(self.index)
+                self.delegate!.userConfirmedDeletion(information)
+            
+            }
+            //
+            
             print("Confirmed deletion")
             self.transitionToNextImage()
         }))
